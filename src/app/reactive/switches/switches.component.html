@@ -1,0 +1,67 @@
+<h2>Reactive: Switches</h2>
+<hr>
+
+<form [formGroup]="ReferenciaFormulario" (ngSubmit)="guardar()">
+  <!-- RADIO -->
+  <div class="row mb-3">
+    <label for="" class="col-sm-3 col-form-label">Genero</label>
+
+    <div class="col-sm-9">
+      <div class="form-check">
+        <input value="M" class="form-check-input" type="radio" formControlName="genero" id="radioMasculino">
+        <label class="form-check-label" for="radioMasculino" >
+          Masculino
+        </label>
+      </div>
+      <div class="form-check">
+        <input value="F" class="form-check-input" type="radio"  formControlName="genero" id="radioFemenino">
+        <label class="form-check-label" for="radioFemenino">
+          Femenino
+        </label>
+      </div>
+    </div>
+
+  </div>
+  <!-- SWITCHES -->
+  <div class="row mb-3">
+    <label for="" class="col-sm-3 col-form-label">Notificaciones</label>
+    <div class="col-sm-9 mt-1">
+      <div class="form-check form-switch mt-2">
+        <input class="form-check-input" formControlName="notificaciones" type="checkbox" id="flexSwitchCheckChecked">
+        <label class="form-check-label" for="flexSwitchCheckChecked">Quiero recibir notificaciones</label>
+      </div>
+      </div>
+  </div>
+  
+  
+    <!-- CHEKCKS -->
+  <div class="row mb-3">
+    <label for="" class="col-sm-3 col-form-label"></label>
+
+    <div class="col-sm-9 mt-1">
+      <div class="form-check">
+        <input class="form-check-input" formControlName="condiciones" type="checkbox"  value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Terminos y condiciones de uso
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTON -->
+  <div class="row mb-3">
+    <div class="col">
+            <button type="submit" class="btn float-end color-boton">Guardar</button>
+    </div>
+  </div>
+
+
+</form>
+
+<h4>Valor del formulario</h4>
+<pre>{{ReferenciaFormulario.value | json}}</pre>
+<hr>
+
+<h4>Formulario valido</h4>
+<pre>{{ReferenciaFormulario.valid}}</pre>
+<hr>

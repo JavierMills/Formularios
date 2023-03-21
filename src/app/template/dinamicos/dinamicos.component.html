@@ -1,0 +1,55 @@
+<h2>Template: Dinamicos</h2>
+<hr>
+
+<form (ngSubmit)="guardar()" #formularioDinamico="ngForm">
+  <!-- nombre -->
+  <div class="mb-3 row">
+    <label for="" class="col-sm-3 col-form-label">Nombre:</label>
+    <div class="col-sm-9">
+      <input type="text" name="nombre" [ngModel]="persona.nombre" class="form-control" placeholder="Nombre del producto"
+        required>
+      <span class="form-text text-danger"
+        *ngIf="formularioDinamico.controls['nombre']?.errors && formularioDinamico.controls['nombre']?.touched">Este
+        campo
+        es obligatorio</span>
+    </div>
+  </div>
+
+  <!-- agregar -->
+  <div class="mb-3 row">
+    <label for="" class="col-sm-3 col-form-label">Agregar:</label>
+    <div class="col-sm-9">
+      <div class="input-group">
+        <input (keyup.enter)="agregarJuego()" [(ngModel)]="nuevoJuego" name="nuevoJuego" class="form-control" placeholder="Agregar Favorito">
+        <button class="btn color-boton" (click)="agregarJuego()">Agregar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- listado juegos favoritos -->
+  <div class="mb-3 row">
+    <label for="" class="col-sm-3 col-form-label">Favoritos:</label>
+    <div class="col-sm-9">
+      <div class="input-group mb-1" *ngFor="let juego of persona.favoritos; let i = index">
+
+        <input [(ngModel)]="juego.nombre" name="favorito_{{i}}" class="form-control" required>
+        <button class="btn color-boton-agregar" (click)="eliminar(i)">Eliminar</button>
+        
+      </div>
+    </div>
+    
+  </div>
+
+
+  <div class="row">
+    <div class="col">
+      <button [disabled]="formularioDinamico.invalid" (click)="guardar()" type="button"
+        class="btn color-boton float-end">Guardar</button>
+
+    </div>
+  </div>
+</form>
+
+
+<span>Persona</span>
+<pre>{{persona | json}}</pre>

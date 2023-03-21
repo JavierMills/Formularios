@@ -1,0 +1,67 @@
+<h2>Teplate: Switches</h2>
+<hr>
+
+<form #formularioSwitches="ngForm">
+  <!-- RADIO -->
+  <div class="row mb-3">
+    <label for="" class="col-sm-3 col-form-label">Genero</label>
+
+    <div class="col-sm-9">
+      <div class="form-check">
+        <input value="M" class="form-check-input" type="radio" [(ngModel)]="persona.genero" name="radioGenero" id="radioMasculino" required>
+        <label class="form-check-label" for="radioMasculino" >
+          Masculino
+        </label>
+      </div>
+      <div class="form-check">
+        <input value="F" class="form-check-input" type="radio" [(ngModel)]="persona.genero"  name="radioGenero" id="radioFemenino" required>
+        <label class="form-check-label" for="radioFemenino">
+          Femenino
+        </label>
+      </div>
+    </div>
+
+  </div>
+  <!-- SWITCHES -->
+  <div class="row mb-3">
+    <label for="" class="col-sm-3 col-form-label">Notificaciones</label>
+    <div class="col-sm-9 mt-1">
+      <div class="form-check form-switch mt-2">
+        <input class="form-check-input" name="notificaciones" [(ngModel)]="persona.notificaciones" type="checkbox" id="flexSwitchCheckChecked">
+        <label class="form-check-label" for="flexSwitchCheckChecked">Quiero recibir notificaciones</label>
+      </div>
+      </div>
+  </div>
+  
+  
+    <!-- CHEKCKS -->
+  <div class="row mb-3">
+    <label for="" class="col-sm-3 col-form-label"></label>
+
+    <div class="col-sm-9 mt-1">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="terminos" [(ngModel)]="terminosYCondiciones" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Terminos y condiciones de uso
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTON -->
+  <div class="row mb-3">
+    <div class="col">
+            <button [disabled]="formularioSwitches.invalid" class="btn float-end color-boton">Guardar</button>
+    </div>
+  </div>
+
+
+</form>
+
+<h4>Valor del formulario</h4>
+<pre>{{formularioSwitches.value | json}}</pre>
+<hr>
+
+<h4>Formulario valido</h4>
+<pre>{{formularioSwitches.valid}}</pre>
+<hr>

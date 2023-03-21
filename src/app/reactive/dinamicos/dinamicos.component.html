@@ -1,0 +1,67 @@
+<h2>Reactive: Dinamicos</h2>
+<hr>
+
+<form autocomplete="off" (ngSubmit)="guardar()" [formGroup]="ReferenciaFormulario">
+  <!-- nombre -->
+  <div class="mb-3 row">
+    <label for="" class="col-sm-3 col-form-label">Nombre:</label>
+    <div class="col-sm-9">
+      <input type="text" formControlName="nombre" name="nombre" class="form-control" placeholder="Nombre del producto"
+        required>
+      <span *ngIf="validarCampo('nombre')" class="form-text text-danger">Este campo nombre es obligatorio</span>
+    </div>
+  </div>
+
+  <!-- agregar -->
+  <div class="mb-3 row">
+    <label for="" class="col-sm-3 col-form-label">Agregar:</label>
+    <div class="col-sm-9">
+      <div class="input-group">
+        <input (keyup.enter)="agregarFavorito()" name="nuevoJuego" [formControl]="nuevoFavorito" class="form-control" placeholder="Agregar Favorito">
+        <button class="btn color-boton" (click)="agregarFavorito()">Agregar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- listado juegos favoritos -->
+  <div class="mb-3 row" >
+    <label for="" class="col-sm-3 col-form-label">Favoritos:</label>
+    <div class="col-sm-9" formArrayName="favoritos"> 
+      <div class="input-group mb-1" *ngFor="let favorito of favoritosArreglo.controls; let i = index">
+
+        <input [formControlName]="i" class="form-control" >
+        <button class="btn color-boton-agregar" (click)="borrar(i)">Eliminar</button>
+        
+      </div>
+    </div>
+    .
+  </div>
+
+
+  <div class="row">
+    <div class="col">
+      <button type="submit"
+        class="btn color-boton float-end" (click)="guardar()">Guardar</button>
+
+    </div>
+  </div>
+</form>
+
+<span>Valid</span>
+<pre>{{ReferenciaFormulario.valid}}</pre>
+<br>
+
+<span>Value</span>
+<pre>{{ReferenciaFormulario.value | json}}</pre>
+<br>
+
+<span>Agregar nuevoFavorito</span>
+<pre>{{nuevoFavorito.valid}}</pre>
+<br>
+
+
+<span>Value</span>
+<pre>{{nuevoFavorito.value | json}}</pre>
+<br>
+<!-- <span>Persona</span>
+<pre>{{persona | json}}</pre> -->

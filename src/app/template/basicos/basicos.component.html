@@ -1,0 +1,60 @@
+<h2>Template: Basicos</h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <form  (submit)="guardar()" #ReferenciaFormulario="ngForm">
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Producto:</label>
+                <div class="col-sm-9">
+                    <input [ngModel]="initForm.producto" name="producto" type="text" class="form-control" placeholder="Nombre del producto" required minlength="3">
+                     <span *ngIf="validarCampo()" class="form-text text-danger">Debe de tener minimo 3 letras</span>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Precio:</label>
+                <div class="col-sm-9">
+                    <input [ngModel]="initForm.precio" name="precio" type="number" class="form-control" placeholder="Precio del producto" required min='0'>
+                    <span *ngIf="validarPrecio()" class="form-text text-danger">Debe de ser mayor a 0</span>
+
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Existencias:</label>
+                <div class="col-sm-9">
+                    <input [ngModel]="initForm.existencias" name="existencias" customMin [minimo]='0' type="number" class="form-control" placeholder="Existencia del producto" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <button [disabled]="ReferenciaFormulario.invalid" type="submit" class="color-boton btn float-end">
+                        Guardar
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col">
+        <span>Valid</span>
+        <pre>{{ReferenciaFormulario.valid}}</pre>
+
+        <span>Pristine</span>
+        <pre>{{ReferenciaFormulario.pristine}}</pre>
+
+        <span>Touched</span>
+        <pre>{{ReferenciaFormulario.touched}}</pre>
+
+        <span>Value</span>
+        <pre>{{ReferenciaFormulario.value | json}}</pre>
+
+        <span>CustomDirective</span>
+        <pre>{{ReferenciaFormulario.controls['existencias']?.errors | json}}</pre>
+    </div>
+</div>

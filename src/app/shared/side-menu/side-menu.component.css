@@ -1,0 +1,27 @@
+.active{
+    background: linear-gradient(to left,
+    #ffff00,
+    #ffc400,
+    #abeb1d,
+    #53ec0b,
+    #3fe09b,
+    #7eb5fb,
+    #f2749b,
+    #f436aa,
+    #f2749b,
+    #7eb5fb,
+    #3fe09b,
+    #53ec0b,
+    #abeb1d,
+    #ffc400,
+    #ffff00);
+background-size: 200%, 200%;
+animation: animationGlow 9s linear infinite;
+    border: none;
+    color: white;
+    font-weight: 900;
+}
+li{
+    cursor: pointer;
+
+}
